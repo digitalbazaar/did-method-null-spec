@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The did:null Method v1.0</title>
+    <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
+    <!--
+      === NOTA BENE ===
+      For the three scripts below, if your spec resides on dev.w3 you can check them
+      out in the same tree and use relative links so that they'll work offline,
+     -->
+    <script src='https://www.w3.org/Tools/respec/respec-w3c' class='remove'></script>
+    <script type="text/javascript" class="remove">
+      var respecConfig = {
+        // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: "unofficial",
+
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: "did-method-null",
+
+        // subtitle for the spec
+        subtitle: "A null DID Method",
+
+        // if you wish the publication date to be other than today, set this
+        //publishDate: "",
+        //crEnd: "",
+        //prEnd: "",
+        //implementationReportURI: "",
+
+        // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+        // and its maturity status
+        // previousPublishDate:  "1977-03-15",
+        // previousMaturity:  "WD",
+
+        // extend the bibliography entries
+        //localBiblio: ...,
+        doJsonLd: true,
+
+        github: "https://github.com/digitalbazaar/did-method-null-spec",
+        includePermalinks: false,
+
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: "https://digitalbazaar.github.io/did-method-null-spec/",
+
+        // if this is a LCWD, uncomment and set the end of its review period
+        // lcEnd: "2009-08-05",
+
+        // editors, add as many as you like
+        // only "name" is required
+        editors: [
+          { name: "David I. Lehn", url: "https://github.com/davidlehn/",
+            company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/"},
+        ],
+        // authors, add as many as you like.
+        // This is optional, uncomment if you have authors as well as editors.
+        // only "name" is required. Same format as editors.
+        authors:
+        [
+          { name: "David I. Lehn", url: "https://github.com/davidlehn/",
+            company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/"},
+        ],
+        // name of the WG
+        //wg:           "W3C Credentials Community Group",
+
+        // URI of the public WG page
+        //wgURI:        "https://www.w3.org/community/credentials/",
+
+        // name (with the @w3c.org) of the public mailing to which comments are due
+        //wgPublicList: "public-credentials",
+
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighborhood
+        // Team Contact.
+        wgPatentURI:  "https://www.w3.org/2004/01/pp-impl/98922/status",
+        maxTocLevel: 2,
+        inlineCSS: true
+      };
+    </script>
+    <style>
+pre .highlight {
+  font-weight: bold;
+  color: Green;
+}
+pre .subject {
+  font-weight: bold;
+  color: RoyalBlue;
+}
+pre .property {
+  font-weight: bold;
+  color: DarkGoldenrod;
+}
+pre .comment {
+  font-weight: bold;
+  color: SteelBlue;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.color-text {
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+    </style>
+  </head>
+  <body>
+    <section id='abstract'>
+      <p>
+Decentralized Identifiers (DIDs) are type of identifier for verifiable,
+decentralized digital identity. These identifiers are designed to enable the
+controller of a DID to prove control over it and to be implemented
+independently of any centralized registry, identity provider, or certificate
+authority. It can sometimes be useful to be able to reference an identifier
+that represents nothing. This document defines such a DID.
+      </p>
+    </section>
+
+    <section id='sotd'>
+    </section>
+
+    <section class="informative">
+      <h2>Introduction</h2>
+
+      <p>
+Decentralized Identifiers (DIDs) [[DID-CORE]] are a type of identifier for
+verifiable, decentralized digital identity. These identifiers are designed
+to enable the controller of a DID to prove control over it and to be
+implemented independently of any centralized registry, identity provider, or
+certificate authority. It can sometimes be useful to be able to reference an
+identifier that represents nothing. This document defines such a DID.
+      </p>
+
+      <p>
+The rest of this document outlines the syntax for the <tt>did:null</tt> method,
+the operations it supports, and some security and privacy considerations that
+implementers might want to be aware of when implementing.
+      </p>
+
+      <p class="note">
+The name "null" was somewhat arbitrarily chosen based on how common its use is
+in computer programming languages. There are many other similar names which
+could equally be used for the same concept presented here: 0, zero, void, none,
+empty, false, undefined, nil, and likely others.
+      </p>
+    </section>
+
+    <section id='conformance'>
+    </section>
+
+    <section class="normative">
+      <h2 id="format">The did:null Format</h2>
+
+      <p>
+The format for the <tt>did:null</tt> method conforms to the [[DID-CORE]]
+specification and is simple. It consists of only <code>did:null:null</code>.
+No <tt>method-specific-id</tt> other than <code>null</code> is specified in
+this specification version and other values should be rejected.
+      </p>
+
+      <p>
+The ABNF for the null format is described below:
+      </p>
+
+      <pre>
+did-null-format    = "did:" method-name ":" method-specific-id
+method-name        = "null"
+method-specific-id = "null"
+      </pre>
+
+      <p>
+The single example of a valid <tt>did:null</tt> DID is:
+      </p>
+
+      <pre class="example" title="A simple did:null value">
+did:null:null
+      </pre>
+
+    </section>
+
+    <section class="normative">
+      <h2>Operations</h2>
+
+      <p>
+The following section outlines the DID operations for the <tt>did:null</tt>
+method. Implementers might note that this DID Method is purely static,
+requiring no look ups in a registry. Since the <tt>did:null</tt> value is not
+stored in any registry, it cannot be updated or deactivated.
+      </p>
+
+      <section class="normative">
+        <h3>Create</h3>
+
+        <p>
+Creation of a <tt>did:null</tt> DID Document always results in the same
+document for the DID <tt>did:null:null</tt>. It is described in full here:
+        </p>
+
+        <pre class="example" title="The did:null:null DID Document">
+          {
+            "@context": [
+              "https://www.w3.org/ns/did/v1"
+            ],
+            "id": "did:null:null",
+            "verificationMethod": [],
+            "assertionMethod": [],
+            "authentication": [],
+            "capabilityInvocation": [],
+            "capabilityDelegation": [],
+            "keyAgreement": []
+          }
+        </pre>
+      </section>
+
+      <section class="normative">
+        <h3>Read</h3>
+
+        <p>
+Reading the <tt>did:null:null</tt> value is a matter of deterministically
+expanding the value to a DID Document described in Section <a
+href="#create"></a>.
+        </p>
+      </section>
+
+      <section class="normative">
+        <h3>Update</h3>
+
+        <p>
+This DID Method does not support updating the DID Document.
+        </p>
+      </section>
+
+      <section class="normative">
+        <h3>Deactivate</h3>
+
+        <p>
+This DID Method does not support deactivating the DID Document.
+        </p>
+      </section>
+
+    </section>
+
+    <section class="informative">
+      <h2>Test Vectors</h2>
+      <p>For a full list of test vectors see <a href="https://github.com/digitalbazaar/did-method-null-spec/tree/main/test-vectors">test vectors</a>.</p>
+      
+      <section class="informative">
+        <h3>null</h3>
+          <p>There is only one test vector and it has no contents.</p>
+        <pre class="example">
+          did:null:null
+        </pre>
+      </section>
+    </section>
+
+    <section class="informative">
+      <h2>Security and Privacy Considerations</h2>
+
+      <p>
+There are a number of security and privacy considerations that implementers
+will want to take into consideration when implementing this specification.
+      </p>
+
+      <section class="informative">
+        <h3>Deactivation Not Supported</h3>
+
+        <p>
+The <tt>did:null</tt> method is a purely static method, which means that
+deactivation is not supported. This can be an issue if a future system wants
+to change the behavior of <tt>did:null:null</tt>.
+        </p>
+      </section>
+
+    </section>
+
+  </section>
+
+  <section class="appendix informative">
+    <h2>Acknowledgements</h2>
+
+    <p>
+The authors would like to thank the number zero and the empty void of space for
+inspiration.
+    </p>
+  </section>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "did:null:null": {
+    "didDocument": {
+      "@context": [
+        "https://www.w3.org/ns/did/v1"
+      ],
+      "id": "did:null:null",
+      "verificationMethod": [],
+      "authentication": [],
+      "assertionMethod": [],
+      "capabilityDelegation": [],
+      "capabilityInvocation": [],
+      "keyAgreement": []
+    }
+  }
+}
