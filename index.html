@@ -133,9 +133,9 @@ identifier that represents nothing. This document defines such a DID.
       </p>
 
       <p>
-The rest of this document outlines the syntax for the <tt>did:null</tt> method,
-the operations it supports, and some security and privacy considerations that
-implementers might want to be aware of when implementing.
+The rest of this document outlines the syntax for the <code>did:null</code>
+method, the operations it supports, and some security and privacy
+considerations that implementers might want to be aware of when implementing.
       </p>
 
       <p class="note">
@@ -153,9 +153,9 @@ empty, false, undefined, nil, and likely others.
       <h2 id="format">The did:null Format</h2>
 
       <p>
-The format for the <tt>did:null</tt> method conforms to the [[DID-CORE]]
+The format for the <code>did:null</code> method conforms to the [[DID-CORE]]
 specification and is simple. It consists of only <code>did:null:null</code>.
-No <tt>method-specific-id</tt> other than <code>null</code> is specified in
+No <code>method-specific-id</code> other than <code>null</code> is specified in
 this specification version and other values should be rejected.
       </p>
 
@@ -170,7 +170,7 @@ method-specific-id = "null"
       </pre>
 
       <p>
-The single example of a valid <tt>did:null</tt> DID is:
+The single example of a valid <code>did:null</code> DID is:
       </p>
 
       <pre class="example" title="A simple did:null value">
@@ -183,18 +183,18 @@ did:null:null
       <h2>Operations</h2>
 
       <p>
-The following section outlines the DID operations for the <tt>did:null</tt>
+The following section outlines the DID operations for the <code>did:null</code>
 method. Implementers might note that this DID Method is purely static,
-requiring no look ups in a registry. Since the <tt>did:null</tt> value is not
-stored in any registry, it cannot be updated or deactivated.
+requiring no look ups in a registry. Since the <code>did:null</code> value is
+not stored in any registry, it cannot be updated or deactivated.
       </p>
 
       <section class="normative">
         <h3>Create</h3>
 
         <p>
-Creation of a <tt>did:null</tt> DID Document always results in the same
-document for the DID <tt>did:null:null</tt>. It is described in full here:
+Creation of a <code>did:null</code> DID Document always results in the same
+document for the DID <code>did:null:null</code>. It is described in full here:
         </p>
 
         <pre class="example" title="The did:null:null DID Document">
@@ -211,7 +211,7 @@ document for the DID <tt>did:null:null</tt>. It is described in full here:
         <h3>Read</h3>
 
         <p>
-Reading the <tt>did:null:null</tt> value is a matter of deterministically
+Reading the <code>did:null:null</code> value is a matter of deterministically
 expanding the value to a DID Document described in Section <a
 href="#create"></a>.
         </p>
@@ -260,9 +260,9 @@ will want to take into consideration when implementing this specification.
         <h3>Deactivation Not Supported</h3>
 
         <p>
-The <tt>did:null</tt> method is a purely static method, which means that
+The <code>did:null</code> method is a purely static method, which means that
 deactivation is not supported. This can be an issue if a future system wants
-to change the behavior of <tt>did:null:null</tt>.
+to change the behavior of <code>did:null:null</code>.
         </p>
       </section>
 
